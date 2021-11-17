@@ -5,16 +5,12 @@ function josephus(list, m) {
   const tail = list.find((node) => !node.next);
   tail.next = currentNode;
 
-  console.log(list);
-
   while (currentNode.next != currentNode) {
     // Counting up to m - 1 times
     for (let i = 1; i < m; i++) {
       // Setting the currentNode to the 'm th' node in the list, essentially counting to the 'm th' in the list
       currentNode = currentNode.next;
     }
-
-    console.log("current node:", currentNode);
 
     // The next item in the list will be removed. If it is the head, we need to assign a new head
     if (currentNode.next === list.head) {
